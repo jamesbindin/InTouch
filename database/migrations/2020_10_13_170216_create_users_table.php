@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('Surname', 50);
             $table->date('DateOfBirth');
             $table->string('PhoneNumber', 30);
-            $table->string('Email', 50);
+            $table->string('Email', 50)->unique();
             $table->timestamps();
         });
     }
