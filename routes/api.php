@@ -24,3 +24,5 @@ Route::get('user', [UserController::class, 'get']);
 Route::get('user/{Username}', [UserController::class, 'get']);
 // POST: /api/user
 Route::post('user', [UserController::class, 'post']);
+// PUT: /api/user
+Route::put('user', [UserController::class, 'put']);

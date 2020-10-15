@@ -36,13 +36,13 @@ class UserController extends Controller
         }
 
         // check Email is not null
-        if(!isset($req->Username)){
+        if(!isset($req->Email)){
             return response()->json(['message'=>'no Email entered', 'data'=>Null], 409);
         }
 
         // check record does not exist
-        $email_exists =  User::where('Email', $req->Email)->first();
         $username_exists =  User::where('Username', $req->Username)->first();
+        $email_exists =  User::where('Email', $req->Email)->first();
 
         // respond if already exists or create new
         if($email_exists || $username_exists){
@@ -67,8 +67,31 @@ class UserController extends Controller
     }
 
     public function put(Request $req){
-        return Null;
 
+        // check Username is not null
+        if(!isset($req->Username)){
+            return response()->json(['message'=>'no Username entered', 'data'=>Null], 409);
+        }
+
+        $user =  User::where('Username', $req->Username)->first();
+
+        // check if user exists and change on db
+        if($user){
+            $user->Firstname = $req->Firstname;
+            $user->Surname = $req->Surname;
+            $user->DateOfBirth = $req->DateOfBirth;
+            $user->PhoneNumber = $req->PhoneNumber;
+            $user->Email = $req->Email;
+            $result = $user->save();
+
+            if($result){
+                return response()->json(['message'=>'success', 'data'=>Null]);
+            }
+
+            return response()->json(['message'=>'failed to add user', 'data'=>$result], 409);
+        }
+
+        return response()->json(['message'=>'user doesn\'t exis', 'data'=>Null]);
     }
 
 }
