@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'Username' => 'user1',
             'Firstname' => 'Aiden',
             'Surname' => 'Knight',
             'DateOfBirth' => '1955/3/3',
@@ -22,6 +23,7 @@ class UserSeeder extends Seeder
             'Email' => 'aiden.knight@example.com'
         ]);
         DB::table('users')->insert([
+            'Username' => 'user2',
             'Firstname' => 'Annette',
             'Surname' => 'Gutierrez',
             'DateOfBirth' => '1960/11/2',
@@ -29,6 +31,7 @@ class UserSeeder extends Seeder
             'Email' => 'annette.gutierrez@example.com'
         ]);
         DB::table('users')->insert([
+            'Username' => 'user3',
             'Firstname' => 'Bryan',
             'Surname' => 'Castro',
             'DateOfBirth' => '1948/6/2',
@@ -36,6 +39,7 @@ class UserSeeder extends Seeder
             'Email' => 'bryan.castro@example.com'
         ]);
         DB::table('users')->insert([
+            'Username' => 'user4',
             'Firstname' => 'Allison',
             'Surname' => 'Gilbert',
             'DateOfBirth' => '1985/10/3',
