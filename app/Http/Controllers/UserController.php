@@ -65,8 +65,8 @@ class UserController extends Controller
 
         }
     }
-
-    public function put(Request $req){
+    // deletes a user, given that record with the same Username exists
+    public function delete(Request $req){
 
         // check Username is not null
         if(!isset($req->Username)){
@@ -75,20 +75,14 @@ class UserController extends Controller
 
         $user =  User::where('Username', $req->Username)->first();
 
-        // check if user exists and change on db
+        // check if user exists and delete on db
         if($user){
-            $user->Firstname = $req->Firstname;
-            $user->Surname = $req->Surname;
-            $user->DateOfBirth = $req->DateOfBirth;
-            $user->PhoneNumber = $req->PhoneNumber;
-            $user->Email = $req->Email;
-            $result = $user->save();
-
+            $result = $user->delete();
             if($result){
                 return response()->json(['message'=>'success', 'data'=>Null]);
             }
 
-            return response()->json(['message'=>'failed to add user', 'data'=>$result], 409);
+            return response()->json(['message'=>'failed to delete user', 'data'=>$result], 409);
         }
 
         return response()->json(['message'=>'user doesn\'t exis', 'data'=>Null]);

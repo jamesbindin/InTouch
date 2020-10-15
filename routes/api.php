@@ -26,3 +26,5 @@ Route::get('user/{Username}', [UserController::class, 'get']);
 Route::post('user', [UserController::class, 'post']);
 // PUT: /api/user
 Route::put('user', [UserController::class, 'put']);
+// DELETE: /api/user
+Route::delete('user/{Username}', [UserController::class, 'delete']);
