@@ -14,17 +14,15 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['CheckApiKey']], function(){
+    // GET: /api/user
+    Route::get('user', [UserController::class, 'get']);
+    // GET: /api/user/{Username}
+    Route::get('user/{Username}', [UserController::class, 'get']);
+    // POST: /api/user
+    Route::post('user', [UserController::class, 'post']);
+    // PUT: /api/user
+    Route::put('user', [UserController::class, 'put']);
+    // DELETE: /api/user
+    Route::delete('user/{Username}', [UserController::class, 'delete']);
 });
-
-// GET: /api/user
-Route::get('user', [UserController::class, 'get']);
-// GET: /api/user/{Username}
-Route::get('user/{Username}', [UserController::class, 'get']);
-// POST: /api/user
-Route::post('user', [UserController::class, 'post']);
-// PUT: /api/user
-Route::put('user', [UserController::class, 'put']);
-// DELETE: /api/user
-Route::delete('user/{Username}', [UserController::class, 'delete']);
