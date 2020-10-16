@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserApiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,15 +14,15 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::group(['middleware' => ['CheckApiKey']], function(){
+// Route::group(['middleware' => ['CheckApiKey']], function(){
     // GET: /api/user
-    Route::get('user', [UserController::class, 'get']);
+    Route::get('user', [UserApiController::class, 'get']);
     // GET: /api/user/{Username}
-    Route::get('user/{Username}', [UserController::class, 'get']);
+    Route::get('user/{Username}', [UserApiController::class, 'get']);
     // POST: /api/user
-    Route::post('user', [UserController::class, 'post']);
+    Route::post('user', [UserApiController::class, 'post']);
     // PUT: /api/user
-    Route::put('user', [UserController::class, 'put']);
+    Route::put('user', [UserApiController::class, 'put']);
     // DELETE: /api/user
-    Route::delete('user/{Username}', [UserController::class, 'delete']);
-});
+    Route::delete('user/{Username}', [UserApiController::class, 'delete']);
+// });
