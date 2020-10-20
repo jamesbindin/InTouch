@@ -6,6 +6,7 @@ The development server used XAMPP v3.2.4 with apache and MYSQL.
 
 Navigate to root of the project and enter the following commands into a CLI
 
+
 // installs project dependencies 
 
 $composer update
