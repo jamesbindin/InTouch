@@ -17,12 +17,12 @@ $php artisan migrate
 
 // seeds the db
 
-$php artisan db:seed
+$php artisan db:seed --class=UserSeeder
 
 // runs unit tests for the API
 
 $php artisan test
 
-// runs server at port 8000
+// runs server at http://127.0.0.1:8000
 
 $php artisan serve
