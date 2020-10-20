@@ -14,7 +14,7 @@ use App\Http\Controllers\UserApiController;
 |
 */
 
-// Route::group(['middleware' => ['CheckApiKey']], function(){
+Route::group(['middleware' => ['CheckApiKey']], function(){
     // GET: /api/user
     Route::get('user', [UserApiController::class, 'get']);
     // GET: /api/user/{Username}
@@ -25,4 +25,4 @@ use App\Http\Controllers\UserApiController;
     Route::put('user', [UserApiController::class, 'put']);
     // DELETE: /api/user
     Route::delete('user/{Username}', [UserApiController::class, 'delete']);
-// });
+});
