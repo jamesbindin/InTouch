@@ -7,16 +7,21 @@ The development server used XAMPP v3.2.4 with apache and MYSQL.
 Navigate to root of the project and enter the following commands into a CLI
 
 // installs project dependencies 
+
 $composer update
 
 // migrates the db if needed
+
 $php artisan migrate
 
 // seeds the db
+
 $php artisan db:seed
 
 // runs unit tests for the API
+
 $php artisan test
 
 // runs server at port 8000
+
 $php artisan serve
