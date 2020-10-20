@@ -1,7 +1,7 @@
 # Installation instruction 
 
 Ensure composor is installed. 
-Please note that an exprted sql file of the db used in in the project root. 
+Please note that an exported sql file of the db used in in the project root. 
 The development server used XAMPP v3.2.4 with apache and MYSQL.
 
 Navigate to root of the project and enter the following commands into a CLI
